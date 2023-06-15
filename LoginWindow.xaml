@@ -1,0 +1,32 @@
+﻿<Window x:Class="Bikerental.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="LOGIN" Height="250" Width="500"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None">
+        <Window.Background>
+            <ImageBrush>
+                <ImageBrush.ImageSource>
+                    <BitmapImage UriSource="D:\Project\BikeRental\blu3.jpg"/>
+                </ImageBrush.ImageSource>
+            </ImageBrush>
+        </Window.Background>
+    <Grid>
+        <Frame x:Name="frame"></Frame>
+        <Label x:Name="loginLabel1" Content="USERNAME:"
+               Margin="50,50,0,0"></Label>
+        <Label x:Name="loginLabel2" Content="PASSWORD:"
+               Margin="50,120,0,0"></Label>
+        <TextBox x:Name="loginName" MaxLines="1" TextWrapping="NoWrap" TextChanged="textBoxChanged"
+                 Margin="140,50,0,0" Width="300" Height="25"></TextBox>
+        <PasswordBox x:Name="loginPassword" Template="{StaticResource passwordBox}" PasswordChanged="passwordChanged"
+                     HorizontalAlignment="Left" VerticalAlignment="Top" Margin="140,120,0,0" Width="300" Height="25"></PasswordBox>
+        <Button x:Name="btnLogin" Content="LOGIN" Click="btnLogin_Click" IsEnabled="False"
+                VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="-150,0,0,30" Width="60" Height="25"></Button>
+        <Button x:Name="btnCancel" Content="CANCEL"  Click="btnCancel_Click"
+                VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="150,0,0,30" Width="60" Height="25"></Button>
+    </Grid>
+</Window>

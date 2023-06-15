@@ -1,0 +1,189 @@
+﻿<Application x:Class="Bikerental.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <Style TargetType="{x:Type Page}">
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="FontFamily" Value="Arial" />
+        </Style>
+
+        <Style TargetType="{x:Type Button}">
+            <EventSetter Event="MouseEnter" Handler="btnMouseEnter" />
+            <EventSetter Event="MouseLeave" Handler="btnMouseLeave" />
+            <Setter Property="Foreground" Value="#fdc500" />
+            <Setter Property="FontWeight" Value="Bold"></Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="5"
+                            Background="#0077ba"
+                            BorderThickness="1">
+                            <ContentPresenter
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Margin="{TemplateBinding Padding}" >
+                            </ContentPresenter>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Foreground" Value="#9ceaef"></Setter>
+                                <Setter Property="FontWeight" Value="ExtraLight"></Setter>
+                                <Setter Property="Effect">
+                                    <Setter.Value>
+                                        <BlurEffect Radius="1" KernelType="Box"></BlurEffect>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="ToolTip" Value="{Binding RelativeSource={RelativeSource Self}, Path=Text}" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="VerticalAlignment" Value="Top" />
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Background" Value="#9ceaef" />
+            <Setter Property="Foreground" Value="#003249" />
+            <Setter Property="FontWeight" Value="Bold"></Setter>
+            <Setter Property="BorderBrush" Value="Transparent"></Setter>
+            <Style.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="5" />
+                </Style>
+            </Style.Resources>
+        </Style>
+        
+        <Style TargetType="{x:Type Label}">
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="VerticalAlignment" Value="Top" />
+            <Setter Property="Foreground" Value="#fdc500" />
+            <Setter Property="FontWeight" Value="Bold"></Setter>
+        </Style>
+        
+        <Style TargetType="{x:Type ProgressBar}">
+            <Setter Property="Foreground">
+                <Setter.Value>
+                    <LinearGradientBrush x:Name="PressedBrush" EndPoint="1,0" StartPoint="0,0">
+                        <GradientStop Color="#003249" Offset="0.0" />
+                        <GradientStop Color="#fdc500" Offset="1.0"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ProgressBar}">
+                        <Grid MinHeight="14" MinWidth="200">
+                            <Border Name="PART_Track" CornerRadius="5" Background="Transparent" BorderBrush="Transparent" BorderThickness="1" />
+                            <Border Name="PART_Indicator" CornerRadius="5" Background="{TemplateBinding Foreground}" BorderBrush="#003249" BorderThickness="1" HorizontalAlignment="Left" />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <ControlTemplate x:Key="passwordBox" TargetType="{x:Type PasswordBox}">
+            <Border Background="#9ceaef" CornerRadius="5">
+                <ScrollViewer Name="PART_ContentHost" SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}"></ScrollViewer>
+            </Border>
+        </ControlTemplate>
+
+        <Style x:Key="ComboboxButtonStyle" TargetType="{x:Type ToggleButton}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ToggleButton}">
+                        <Border   
+                             Background="#9ceaef"   
+                             x:Name="border"   
+                             CornerRadius="0,5,5,0"   
+                             BorderThickness="0,1,1,1"  
+                             BorderBrush="#003249">
+                            <ContentPresenter />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="ComboboxTextBoxStyle" TargetType="{x:Type TextBox}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBox}">
+                        <Grid>
+                            <Border CornerRadius="5,0,0,5"  
+                               BorderThickness="1,1,0,1"  
+                               Background="#9ceaef"
+                               BorderBrush="#003249"> 
+                                <ScrollViewer x:Name="PART_ContentHost"/>
+                            </Border>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="ComboboxStyle" TargetType="{x:Type ComboBox}">
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="FontWeight" Value="Bold"></Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ComboBox}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition MaxWidth="18"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBox Name="PART_EditableTextBox"  
+                                Style="{StaticResource ComboboxTextBoxStyle}"  
+                                Padding="5,0,0,0"  
+                                Height="{TemplateBinding Height}"/>
+                            <ToggleButton Grid.Column="1" Margin="0"  
+                                   Height="{TemplateBinding Height}"  
+                                   Style="{StaticResource ComboboxButtonStyle}"  
+                                   Focusable="False"  
+                                   IsChecked="{Binding Path=IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"  
+                                   ClickMode="Press">   
+                                <Path Grid.Column="1"  
+                                  HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"  
+                                  Data="M 0 0 L 4 4 L 8 0 Z"  
+                                  Fill="#003249" />
+                            </ToggleButton>
+                            <ContentPresenter Name="ContentSite"  
+                               Content="{TemplateBinding SelectionBoxItem}"  
+                               ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"  
+                               ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}"  
+                               VerticalAlignment="Center"  
+                               HorizontalAlignment="Left"  
+                               Margin="5,0,0,0"/>
+                            <Popup Name="Popup"  
+                               Placement="Bottom"  
+                               IsOpen="{TemplateBinding IsDropDownOpen}"  
+                               AllowsTransparency="True"   
+                               Focusable="False"  
+                               PopupAnimation="Slide">
+                                <Grid Name="DropDown"  
+                                     SnapsToDevicePixels="True"          
+                                     MinWidth="{TemplateBinding ActualWidth}"  
+                                     MaxHeight="{TemplateBinding MaxDropDownHeight}">
+                                    <Border   
+                                       x:Name="DropDownBorder"  
+                                       BorderThickness="1"
+                                       CornerRadius="5"
+                                       Background="#9ceaef"
+                                       BorderBrush="#003249"/>
+                                    <ScrollViewer Margin="4,6,4,6" SnapsToDevicePixels="True">
+                                        <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Contained" />
+                                    </ScrollViewer>
+                                </Grid>
+                            </Popup>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </Application.Resources>
+</Application>

@@ -1,0 +1,28 @@
+﻿<Page x:Class="Bikerental.Page3"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Page3">
+
+    <Grid>
+        <Frame x:Name="frPage3"></Frame>
+        <Button x:Name="btnStart" Content="CLICK TO START INSTALLING" Click="btnStart_Click"
+                VerticalAlignment="Top" HorizontalAlignment="Center" Width="230" Height="30" Margin="30"></Button>
+        <ProgressBar x:Name="pbStatus"
+                     VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="Hidden" Width="550" Height="30" Margin="100,100"/>
+        <TextBox x:Name="txtBox" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True"
+                 Visibility="Hidden" Width="600" Height="180" Margin="100,180,0,0"/>
+        <Button x:Name="btnExit" Content="EXIT INSTALLER" Click="btnExit_Click" Visibility="Hidden" IsEnabled="False"
+                VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="150" Height="30" Margin="30"/>
+        <Button x:Name="btnBack" Content="&lt;  PREVIOUS" Click="btnBack_Click"
+                VerticalAlignment="Top" HorizontalAlignment="Left" Width="120" Height="30" Margin="100,30"></Button>
+        <Button x:Name="btnCancel" Content="CANCEL" Click="btnCancel_Click" 
+                VerticalAlignment="Top" HorizontalAlignment="Right" Width="100" Height="30" Margin="100,30"></Button>
+        <TextBox x:Name="pbPercentage" Text="0%"
+                 VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Visibility="Hidden"
+                 Margin="650,100,0,0" TextWrapping="NoWrap" Height="30" Width="50"/>
+    </Grid>
+</Page>

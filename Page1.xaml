@@ -1,0 +1,39 @@
+﻿<Page x:Class="Bikerental.Page1"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Margin="0,15,0,0"
+      Title="Page1">
+
+    <Grid Name="page1Label">
+        <Label x:Name="page1Label1" Content="CHECK SQL SERVER AND SQL AGENT SERVICE STATUS"
+               VerticalAlignment="Top" HorizontalAlignment="Left" Width="390" Height="30" Margin="100,30"></Label>
+        <Button x:Name="btnCheck" Click="btnCheck_Click" Content="CHECK"
+                VerticalAlignment="Top" HorizontalAlignment="Right" Height="25" Width="80" Margin="180,30"></Button>
+        <Label x:Name="page1Label2" Content="PLEASE, SELECT THE FOLDER WHERE THE BIKERENTAL.EXE FILE IS FOUND"
+               Visibility="Hidden" Margin="100,90,0,0"/>
+        <TextBox x:Name="page1Label2selected"
+                 Visibility="Hidden" Margin="100,115,0,0" Width="390" Height="25"></TextBox>
+        <Label x:Name="page1Label3" Content="PLEASE, SELECT THE FOLDER WHERE THE DATABASE WILL BE INSTALLED"
+               Visibility="Hidden" Margin="100,175,0,0"></Label>
+        <TextBox x:Name="page1Label3selected"
+                 Visibility="Hidden" Margin="100,200,0,0" Width="390" Height="25"></TextBox>
+        <Label x:Name="page1Label4" Content="PLEASE, SELECT THE FOLDER WHERE THE BACKUP FILES WILL BE SAVED"
+               Visibility="Hidden" Margin="100,260,0,0"></Label>
+        <TextBox x:Name="page1Label4selected"
+                 Visibility="Hidden" Margin="100,285,0,0" Width="390" Height="25"></TextBox>
+        <Button x:Name="btnSelectInstall" Content="SELECT" Click="btnSelectInstall_Click"
+                VerticalAlignment="Top" HorizontalAlignment="Right" Visibility="Hidden" Width="70" Height="25" Margin="180,90"/>
+        <Button x:Name="btnSelectDatabase" Content="SELECT" Click="btnSelectDatabase_Click"
+                VerticalAlignment="Top" HorizontalAlignment="Right" Visibility="Hidden" Width="70" Height="25" Margin="180,175"></Button>
+        <Button x:Name="btnSelectBackup" Content="SELECT" Click="btnSelectBackup_Click"
+                VerticalAlignment="Top" HorizontalAlignment="Right" Visibility="Hidden" Width="70" Height="25" Margin="0,260,180,0"></Button>
+        <Button x:Name="btnPage1Cancel" Content="CANCEL" Click="btnPage1Cancel_Click"
+                VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="100" Height="30" Margin="200,0,0,50"></Button>
+        <Button x:Name="btnPage1Next" Content="NEXT  &gt;" Click="btnPage1Next_Click" IsEnabled="False"
+                VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="100" Height="30" Margin="-200,0,0,50"></Button>
+    </Grid>
+</Page>
